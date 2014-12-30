@@ -56,7 +56,7 @@ for(i in 1:10){
 
     #original logistic regression
     M1 = glm(yy~., data = data.frame(yy=Y.train, data.train), family = binomial(link="logit"))
-    CVerr[6,i] = mean(levels(Y.test)[(predict(M1, newdata = data.frame(Y.test), type = 'response')>0.5)+1] == Y.test)
+    CVerr[6,i] = mean(levels(Y.test)[(predict(M1, newdata = data.frame(data.test), type = 'response')>0.5)+1] == Y.test)
     
     print(i)
 }
